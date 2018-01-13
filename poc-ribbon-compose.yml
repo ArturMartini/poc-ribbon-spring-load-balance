@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+  consul:
+    restart: always
+    image: consul:1.0.2
+    mem_limit: 128m
+    command: "agent -dev -bind=127.0.0.1 -ui"
+    container_name: consul
+    hostname: consul
+#    environment:
+#      - CONSUL_CLIENT_INTERFACE=eth0
+#      - CONSUL_BIND_INTERFACE=eth0
+    ports:
+      - '8300'
+      - '8301'
+      - '8302'
+      - '8400'
+      - '8500'
+      - '8600'
+    network_mode: host
+  
+  poc-ribbon-consul:
+    image: 'poc-ribbon-consul:latest'
+    environment:
+      - CONSUL_HOST=localhost
+    network_mode: host
