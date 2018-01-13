@@ -1,9 +1,8 @@
 ## Microservice with Docker + Spring Boot + Ribbon Load Balance + Consul + Docker Scale without Registrator
 <br>
-for run this example:
-<br>
 Requirements: Docker, Maven, Java
 <br>
+for run this example:
 <br>
 * mvn clean install -DskipTests
 * docker build -t poc-ribbon-consul .
